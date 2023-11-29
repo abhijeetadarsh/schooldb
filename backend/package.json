@@ -1,0 +1,17 @@
+{
+  "name": "schooldb-managment",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node --watch src/index.js"
+  },
+  "author": "aditya anand",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mysql2": "^3.6.5"
+  }
+}
