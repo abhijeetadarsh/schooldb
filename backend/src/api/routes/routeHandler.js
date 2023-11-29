@@ -1,33 +1,16 @@
 import express from "express";
-import studentController from "../controllers/studentController.js";
-import teacherController from "../controllers/teacherController.js";
-import classroomController from "../controllers/classroomController.js";
-import subjectController from "../controllers/subjectController.js";
+import controller from "../controllers/controller.js";
+import { tables } from "../../constants.js";
+
 const router = express.Router();
 
-router.route("/students").get(studentController.getAllStudents);
-router.route("/students/desc").get(studentController.getStudentDesc);
-router.route("/students/:id").get(studentController.getStudentById);
-router.route("/students").post(studentController.addStudent);
-router.route("/students/:id").put(studentController.updateStudent);
-router.route("/students/:id").delete(studentController.deleteStudent);
-
-router.route("/teachers").get(teacherController.getAllTeachers);
-router.route("/teachers/:id").get(teacherController.getTeacherById);
-router.route("/teachers").post(teacherController.addTeacher);
-router.route("/teachers/:id").put(teacherController.updateTeacher);
-router.route("/teachers/:id").delete(teacherController.deleteTeacher);
-
-router.route("/classrooms").get(classroomController.getAllClassrooms);
-router.route("/classrooms/:id").get(classroomController.getClassroomById);
-router.route("/classrooms").post(classroomController.addClassroom);
-router.route("/classrooms/:id").put(classroomController.updateClassroom);
-router.route("/classrooms/:id").delete(classroomController.deleteClassroom);
-
-router.route("/subjects").get(subjectController.getAllSubjects);
-router.route("/subjects/:id").get(subjectController.getSubjectById);
-router.route("/subjects").post(subjectController.addSubject);
-router.route("/subjects/:id").put(subjectController.updateSubject);
-router.route("/subjects/:id").delete(subjectController.deleteSubject);
+tables.forEach((table) => {
+  router.route(`/${table}s`).get(controller["getAllTuples"]);
+  router.route(`/${table}s/desc`).get(controller["getTableDesc"]);
+  router.route(`/${table}s/:id`).get(controller["getTupleById"]);
+  router.route(`/${table}s`).post(controller["addTuple"]);
+  router.route(`/${table}s/:id`).put(controller["updateTuple"]);
+  router.route(`/${table}s/:id`).delete(controller["deleteTuple"]);
+});
 
 export { router };

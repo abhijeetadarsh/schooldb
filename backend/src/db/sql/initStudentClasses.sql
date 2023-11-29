@@ -1,4 +1,4 @@
-INSERT INTO Student_Classes (ClassID, StudentID)
+INSERT INTO StudentClasses (ClassID, StudentID)
 VALUES
     (11, 11),
     (12, 12),

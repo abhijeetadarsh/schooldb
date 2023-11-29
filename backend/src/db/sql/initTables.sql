@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS Class (
     FOREIGN KEY (TeacherID) REFERENCES Teacher(TeacherID)
 );
 $
-CREATE TABLE IF NOT EXISTS Student_Classes (
+CREATE TABLE IF NOT EXISTS StudentClasses (
     ClassID INT,
     StudentID INT,
     PRIMARY KEY (ClassID, StudentID),
