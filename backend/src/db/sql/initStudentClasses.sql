@@ -1,4 +1,4 @@
-INSERT INTO StudentClasses (ClassID, StudentID)
+INSERT IGNORE INTO StudentClasses (ClassID, StudentID)
 VALUES
     (11, 11),
     (12, 12),

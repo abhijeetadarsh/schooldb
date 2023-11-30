@@ -1,4 +1,4 @@
-INSERT INTO Classroom (ClassroomID, Capacity, Room_Type, Facilities)
+INSERT IGNORE INTO Classroom (ClassroomID, Capacity, Room_Type, Facilities)
 VALUES
     (501, 30, 'Lecture Hall', 'Projector, Whiteboard'),
     (502, 25, 'Science Lab', 'Lab Equipment'),

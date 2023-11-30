@@ -1,4 +1,4 @@
-INSERT INTO Class (ClassID, ClassroomID, SubjectID, TeacherID, Period, Time)
+INSERT IGNORE INTO Class (ClassID, ClassroomID, SubjectID, TeacherID, Period, Time)
 VALUES
     (11, 511, 211, 111, 'Eleventh Period', '08:00:00'),
     (12, 512, 212, 112, 'Twelfth Period', '09:30:00'),

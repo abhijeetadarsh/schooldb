@@ -1,4 +1,4 @@
-INSERT INTO Subject (SubjectID, Requirements, Max_Capacity)
+INSERT IGNORE INTO Subject (SubjectID, Requirements, Max_Capacity)
 VALUES
     (201, 'Lab coat required', 20),
     (202, 'Textbook required', 25),

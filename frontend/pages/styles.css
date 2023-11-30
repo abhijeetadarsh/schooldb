@@ -7,7 +7,7 @@ body {
 }
 
 .container {
-  max-width: 80vw;
+  max-width: 60vw;
   margin: 50px auto;
   background-color: #ffffff74;
   padding: 20px;
@@ -19,7 +19,8 @@ ul {
   padding: 0;
 }
 
-li {
+li,
+#table-form {
   margin-bottom: 10px;
   padding: 10px;
   border: 1px solid #ddd;
@@ -76,4 +77,47 @@ li {
 
 .add-new-btn:hover {
   background-color: #27ae60; /* Darker green on hover */
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  /* font-weight: bold; */
+  font-size: 1.5rem;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#form-submit {
+  padding: 10px;
+  background-color: #3498db; /* Blue color for the submit button */
+  color: #fff; /* White text color */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#form-submit:hover {
+  background-color: #2980b9; /* Darker blue on hover */
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+input[type="file"],
+textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #33003360; /* Apply background color for specific input types */
 }

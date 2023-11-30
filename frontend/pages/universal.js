@@ -32,14 +32,14 @@ document.addEventListener("DOMContentLoaded", function () {
           listItem.innerHTML = `
             ${htmlContent}
             <button class="delete-btn">Delete</button>
-            <button class="update-btn">Update</button>
-          `;
+            <button class="update-btn">Update</button>`;
 
           const entryId = entry[`${tableName}ID`];
           // Add click event for the delete button
           const deleteBtn = listItem.querySelector(".delete-btn");
           deleteBtn.addEventListener("click", function () {
             // Call your delete API endpoint with the entry ID
+            location.reload();
             fetch(`http://localhost:3000/api/v1/${tableName}s/${entryId}`, {
               method: "DELETE",
             })
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
               .then((result) => {
                 console.log(result);
                 // Optionally, you can remove the list item from the DOM upon successful deletion
-                listItem.remove();
+                // listItem.remove();
               })
               .catch((error) => {
                 console.error("Error deleting entry:", error);

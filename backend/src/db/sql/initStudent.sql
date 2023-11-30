@@ -1,4 +1,4 @@
-INSERT INTO Student (StudentID, First_Name, Last_Name, Year_Group, Date_of_Birth, Student_Image, School_Team)
+INSERT IGNORE INTO Student (StudentID, First_Name, Last_Name, Year_Group, Date_of_Birth, Student_Image, School_Team)
 VALUES
     (1, 'John', 'Doe', 10, '2005-01-15', NULL, 'Basketball'),
     (2, 'Alice', 'Smith', 11, '2004-08-22', NULL, 'Soccer'),

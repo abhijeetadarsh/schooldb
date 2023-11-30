@@ -1,4 +1,4 @@
-INSERT INTO Teacher (TeacherID, First_Name, Last_Name, Title, Subjects_Taught, Level)
+INSERT IGNORE INTO Teacher (TeacherID, First_Name, Last_Name, Title, Subjects_Taught, Level)
 VALUES
     (101, 'Mr.', 'Anderson', 'Mathematics', 'Algebra', 'High School'),
     (102, 'Mrs.', 'Miller', 'English', 'Literature', 'Middle School'),

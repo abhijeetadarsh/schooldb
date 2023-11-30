@@ -3,10 +3,6 @@ $(document).ready(function () {
   $(".list-big").scrollbar();
 });
 
-$("#student").click(() => {
-  console.log("clikced");
-});
-
 document.addEventListener("DOMContentLoaded", function () {
   // Select all elements with the class 'table'
   const tables = document.querySelectorAll(".title");
@@ -14,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Add a click event listener to each table
   tables.forEach((table) => {
     table.addEventListener("click", function () {
-      console.log(table);
+      // console.log(table);
       // Get the table name from the data attribute
       const tableName = table.getAttribute("data-tableName");
 

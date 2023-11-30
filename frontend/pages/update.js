@@ -1,4 +1,3 @@
-// add-new.js
 // Function to map MySQL data types to HTML input types
 function getInputType(dataType) {
   switch (dataType) {
@@ -8,7 +7,6 @@ function getInputType(dataType) {
       return "date";
     case "blob":
       return "file";
-    // Add more cases as needed
     default:
       return "text";
   }
@@ -20,24 +18,34 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const urlParams = new URLSearchParams(window.location.search);
   const tableName = urlParams.get("table");
+  const tupleId = urlParams.get("id");
 
   if (tableName) {
-    tableTitle.innerHTML = `Add New ${tableName}`;
+    tableTitle.innerHTML = `Update ${tableName}`;
 
-    // Fetch attribute names dynamically from your backend
-    fetch(`http://localhost:3000/api/v1/${tableName}s/desc`)
+    fetch(`http://localhost:3000/api/v1/${tableName}s/${tupleId}`)
       .then((response) => response.json())
-      .then((attributes) => {
-        attributes.forEach((attribute) => {
-          const label = `<label>${attribute.Field}</label><br>`;
-          const inputType = getInputType(attribute.Type);
-          const requiredAttribute = attribute.Null === "NO" ? "required" : "";
-          const input = `<input type="${inputType}" name="${attribute.Field}" ${requiredAttribute}>`;
-          // console.log(attribute);
-          form.innerHTML += `${label}${input}`;
-        });
-        form.innerHTML +=
-          '<button id="form-submit" type="submit">Submit</button>';
+      .then((data) => {
+        console.log(data);
+
+        // Fetch attribute names dynamically from your backend
+        return fetch(`http://localhost:3000/api/v1/${tableName}s/desc`)
+          .then((response) => response.json())
+          .then((attributes) => {
+            attributes.forEach((attribute) => {
+              const label = `<label>${attribute.Field}</label><br>`;
+              const inputType = getInputType(attribute.Type);
+              const requiredAttribute =
+                attribute.Null === "NO" ? "required" : "";
+              const input = `<input type="${inputType}" name="${
+                attribute.Field
+              }" value="${data[attribute.Field]}" ${requiredAttribute}>`;
+              // console.log(attribute);
+              form.innerHTML += `${label}${input}`;
+            });
+            form.innerHTML +=
+              '<button id="form-submit" type="submit">Submit</button>';
+          });
       })
       .catch((error) => {
         console.error("Error fetching attributes:", error);
@@ -58,8 +66,8 @@ document.addEventListener("DOMContentLoaded", function () {
       // console.log(JSON.stringify(attributeValues));
       // Implement logic to submit the form data to your backend
       // You might use fetch or another method depending on your setup
-      fetch(`http://localhost:3000/api/v1/${tableName}s`, {
-        method: "POST",
+      fetch(`http://localhost:3000/api/v1/${tableName}s/${tupleId}`, {
+        method: "PUT",
         body: JSON.stringify(attributeValues),
         headers: {
           "Content-Type": "application/json",

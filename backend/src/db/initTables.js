@@ -16,6 +16,9 @@ tables.forEach((table) => {
   // console.log(query.slice(0, 100));
 
   db.query(query, (result, err) => {
-    console.log(result, err);
+    // console.log(result, err);
+    if (err) {
+      console.error(err);
+    }
   });
 });

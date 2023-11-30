@@ -8,7 +8,6 @@ const getTableFromUrl = (url) => {
 const controller = {
   getAllTuples: (req, res) => {
     const tableName = getTableFromUrl(req.url);
-    console.log(tableName);
     if (req.url)
       db.query("SELECT * FROM ??", [tableName], (err, results) => {
         if (err) {
@@ -22,7 +21,6 @@ const controller = {
 
   getTableDesc: (req, res) => {
     const tableName = getTableFromUrl(req.url);
-    console.log(tableName);
     db.query("DESC ??", [tableName], (err, results) => {
       if (err) {
         console.error("Error querying the database:", err);
