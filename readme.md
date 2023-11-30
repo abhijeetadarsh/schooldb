@@ -1,5 +1,3 @@
-Creating a README file is a crucial step to provide documentation and information about your project. Below is a template you can use as a starting point for your project's README file. Make sure to customize it according to your project's specific details.
-
 # School Database Project
 
 This project is a web application for managing a school database. It includes functionalities to handle student records, teacher information, classrooms, subjects, and class schedules.
